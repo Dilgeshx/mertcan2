@@ -1,9 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
-
-export const metadata = {
-  title: 'Odalar • Mertcan Pansiyon',
-};
+import ThemeToggle from '../components/ThemeToggle';
 
 const images = [
   { src: '/rooms/room1.jpeg', alt: 'Oda 1' },
@@ -13,6 +12,7 @@ const images = [
 export default function RoomsPage() {
   return (
     <main className="site-container py-12 text-slate-900">
+      <ThemeToggle />
       <div className="flex flex-col gap-3 mb-8">
         <div className="flex items-center justify-between gap-3">
           <h1 className="text-3xl font-extrabold">Odalar</h1>

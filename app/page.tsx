@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import ThemeToggle from './components/ThemeToggle';
 
 // Fade-in animation variants
 const fadeInUp = {
@@ -72,6 +73,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-slate-900 hero-gradient relative overflow-hidden">
+      <ThemeToggle />
       <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
       <div className="absolute -right-16 top-10 w-72 h-72 bg-cyan-400/15 blur-3xl rounded-full" />
       <div className="absolute -left-10 top-36 w-72 h-72 bg-orange-400/15 blur-3xl rounded-full" />
