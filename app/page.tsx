@@ -72,7 +72,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen text-slate-900 hero-gradient relative overflow-hidden">
+    <div className="min-h-screen text-slate-900 hero-gradient relative overflow-x-hidden">
       <ThemeToggle />
       <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
       <div className="absolute -right-16 top-10 w-72 h-72 bg-cyan-400/15 blur-3xl rounded-full" />
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Hero */}
       <main className="site-container py-28 lg:py-40 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-center mb-24 lg:mb-32">
           <motion.div 
             className="space-y-12"
             initial="hidden"
@@ -120,15 +120,15 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/rooms" className="inline-flex items-center justify-center px-5 py-2.5 bg-cyan-400 text-slate-900 rounded-full text-sm font-semibold hover:opacity-90 shadow-soft">
+              <Link href="/rooms" className="btn btn-primary">
                 Odaları Gör
               </Link>
-              <a href="#iletisim" className="inline-flex items-center justify-center px-5 py-2.5 border border-cyan-300/70 rounded-full text-sm text-cyan-100 bg-slate-900/60 hover:border-cyan-400/60">
+              <a href="#iletisim" className="btn btn-secondary">
                 İletişim
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 pt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 pt-12">
               {[
                 { 
                   label: 'Merkezi Konum', 
@@ -199,14 +199,14 @@ export default function Home() {
 
         {/* Features */}
         <motion.section 
-          className="mt-56 lg:mt-[22rem]"
+          className="mt-20 lg:mt-28"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             {[
               { t: 'Şehir merkezi', d: 'Ulaşım aksına birkaç adım mesafede', i: (
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 21h18" stroke="#67e8f9" strokeWidth="1.5"/><path d="M7 21V9l5-4 5 4v12" stroke="#e2e8f0" strokeWidth="1.5"/></svg>
@@ -253,10 +253,10 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold text-white leading-relaxed">Unutulmaz bir konaklama deneyimi yaşayın</h2>
             <p className="text-slate-300 max-w-2xl mx-auto text-base lg:text-lg leading-relaxed">Karabük'ün kalbinde, modern dokunuşlarla siz misafirlerimizi ağırlamaktan mutluluk duyuyoruz.</p>
             <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3">
-              <a href="tel:+905555555555" className="inline-flex items-center justify-center px-6 py-2.5 bg-cyan-400 text-slate-900 rounded-full text-sm font-semibold hover:opacity-90 shadow-soft">
+              <a href="tel:+905555555555" className="btn btn-primary">
                 Hemen Ara
               </a>
-              <a href="#iletisim" className="inline-flex items-center justify-center px-6 py-2.5 border border-cyan-400 rounded-full text-sm text-cyan-200 hover:bg-cyan-500/15">
+              <a href="#iletisim" className="btn btn-secondary">
                 Rezervasyon Yap
               </a>
             </div>
@@ -280,8 +280,8 @@ export default function Home() {
               <p className="text-slate-300 text-base leading-relaxed">info@mertcanpansiyon.com • +90 555 555 55 55 • Karabük Merkez, 100. Yıl, 1002. Cd. NO:1/18, 78050 Merkez/Karabük</p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href="tel:+905555555555" className="inline-flex items-center justify-center px-5 py-2.5 bg-cyan-400 text-slate-900 rounded-full text-sm font-semibold hover:opacity-90 shadow-soft">Hemen Ara</a>
-              <a href="https://maps.app.goo.gl/tbY6XAndX8y3jJGi9" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-5 py-2.5 border border-slate-700 rounded-full text-sm text-slate-200 hover:border-cyan-400/60">Haritada Aç</a>
+              <a href="tel:+905555555555" className="btn btn-primary">Hemen Ara</a>
+              <a href="https://maps.app.goo.gl/tbY6XAndX8y3jJGi9" target="_blank" rel="noreferrer" className="btn btn-secondary">Haritada Aç</a>
             </div>
           </div>
         </motion.section>

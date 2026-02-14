@@ -11,18 +11,18 @@ const images = [
 
 export default function RoomsPage() {
   return (
-    <main className="site-container py-12 text-slate-900">
+    <main className="site-container py-12 pb-20 text-slate-900">
       <ThemeToggle />
       <div className="flex flex-col gap-3 mb-8">
         <div className="flex items-center justify-between gap-3">
           <h1 className="text-3xl font-extrabold">Odalar</h1>
-          <Link href="/" className="text-sm text-cyan-600 hover:text-cyan-800">← Anasayfa</Link>
+          <Link href="/" className="btn btn-secondary">← Anasayfa</Link>
         </div>
         <p className="text-slate-700 max-w-2xl">Temiz, sade ve konforlu odalarımızı aşağıda görebilirsiniz. Rezervasyon için iletişime geçebilirsiniz.</p>
         <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-cyan-700 bg-cyan-100 border border-cyan-300 rounded-full px-3 py-2 w-max">Yenilenen oda serisi</div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
         {images.map((img, idx) => (
           <div key={img.src} className="panel neon-edge rounded-2xl overflow-hidden flex flex-col">
             <div className="relative aspect-[4/3]">
