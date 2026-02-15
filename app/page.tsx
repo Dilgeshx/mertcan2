@@ -289,7 +289,7 @@ export default function Home() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/905555555555"
+        href="https://wa.me/905330878295"
         target="_blank"
         rel="noreferrer"
         className="fixed z-50 bottom-4 sm:bottom-6 right-4 sm:right-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500 text-white shadow-soft hover:shadow-lg"
@@ -312,7 +312,7 @@ export default function Home() {
           <div>
             <div className="font-semibold text-white mb-1">İletişim</div>
             <div className="text-slate-300">info@mertcanpansiyon.com</div>
-            <div className="text-slate-300">+90 555 555 55 55</div>
+            <div className="text-slate-300">+90 533 087 82 95</div>
           </div>
           <div>
             <div className="font-semibold text-white mb-1">Adres</div>
