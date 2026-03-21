@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ThemeToggle from './components/ThemeToggle';
 
@@ -33,44 +32,6 @@ const slideInRight = {
 };
 
 export default function Home() {
-  const [visibleRooms, setVisibleRooms] = useState([false, false, false]);
-  const [roomsExpanded, setRoomsExpanded] = useState(false);
-  const roomsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const rooms = [
-    { src: '/rooms/room1.jpeg', title: 'Standart Oda', tag: 'Çift kişilik' },
-    { src: '/rooms/room2.jpeg', title: 'Geniş Oda', tag: 'Aile için' },
-    { src: '/rooms/room1.jpeg', title: 'Deluxe Oda', tag: 'Lüks' },
-  ];
-
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -50px 0px',
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = roomsRef.current.indexOf(entry.target as HTMLDivElement);
-          if (index !== -1) {
-            setVisibleRooms((prev) => {
-              const newVisible = [...prev];
-              newVisible[index] = true;
-              return newVisible;
-            });
-          }
-        }
-      });
-    }, observerOptions);
-
-    roomsRef.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen text-slate-900 hero-gradient relative overflow-x-hidden">
       <ThemeToggle />
@@ -94,7 +55,7 @@ export default function Home() {
       <div className="h-24" />
 
       {/* Hero */}
-      <main className="site-container py-28 lg:py-40 relative z-10">
+      <main className="site-container home-main relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-28 items-center mb-24 lg:mb-32">
           <motion.div 
             className="space-y-12"
@@ -112,11 +73,11 @@ export default function Home() {
               Haritada Aç
             </a>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-relaxed text-white max-w-2xl">
-              Karabük'ün kalbinde
+              Karabük&apos;ün kalbinde
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-orange-300">sıcak ve modern konaklama</span>
             </h1>
             <p className="text-base lg:text-lg text-slate-200 max-w-xl leading-relaxed">
-              Karabük'ün merkezinde yer alan Mertcan Pansiyon, yalın ve samimi hizmet anlayışıyla temiz, konforlu ve ulaşımı kolay odalar sunar. Modern dokunuşlarla sakin bir deneyim yaşayın.
+              Karabük&apos;ün merkezinde yer alan Mertcan Pansiyon, yalın ve samimi hizmet anlayışıyla temiz, konforlu ve ulaşımı kolay odalar sunar. Modern dokunuşlarla sakin bir deneyim yaşayın.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -182,7 +143,7 @@ export default function Home() {
             <div className="absolute -top-6 -left-6 w-28 h-28 bg-gradient-to-br from-cyan-400/35 to-orange-400/30 blur-3xl" />
             <div className="panel neon-edge rounded-2xl overflow-hidden">
               <div className="relative aspect-[4/3]">
-                <Image src="/rooms/room1.jpeg" alt="Oda görseli" fill className="object-cover" priority />
+                <Image src="/rooms/oda1/WhatsApp%20Image%202025-09-23%20at%2012.07.05.jpeg" alt="Oda görseli" fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold text-white">
                   <span className="px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700">Şehir merkezi</span>
@@ -199,7 +160,7 @@ export default function Home() {
 
         {/* Features */}
         <motion.section 
-          className="mt-20 lg:mt-28"
+          className="home-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -242,7 +203,7 @@ export default function Home() {
 
         {/* Secondary CTA */}
         <motion.section 
-          className="mt-56 lg:mt-[22rem]"
+          className="home-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -251,7 +212,7 @@ export default function Home() {
         >
           <div className="panel-accent rounded-2xl p-12 md:p-20 lg:p-24 text-center space-y-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-white leading-relaxed">Unutulmaz bir konaklama deneyimi yaşayın</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto text-base lg:text-lg leading-relaxed">Karabük'ün kalbinde, modern dokunuşlarla siz misafirlerimizi ağırlamaktan mutluluk duyuyoruz.</p>
+            <p className="text-slate-300 max-w-2xl mx-auto text-base lg:text-lg leading-relaxed">Karabük&apos;ün kalbinde, modern dokunuşlarla siz misafirlerimizi ağırlamaktan mutluluk duyuyoruz.</p>
             <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3">
               <a href="tel:+905555555555" className="btn btn-primary">
                 Hemen Ara
@@ -266,7 +227,7 @@ export default function Home() {
         {/* Contact CTA */}
         <motion.section 
           id="iletisim" 
-          className="mt-56 lg:mt-[22rem] mb-48"
+          className="home-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -282,6 +243,51 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a href="tel:+905555555555" className="btn btn-primary">Hemen Ara</a>
               <a href="https://maps.app.goo.gl/tbY6XAndX8y3jJGi9" target="_blank" rel="noreferrer" className="btn btn-secondary">Haritada Aç</a>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Location Map */}
+        <motion.section
+          className="home-section mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={fadeInUp}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="panel rounded-2xl p-6 md:p-8 lg:p-10 space-y-6">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-cyan-200">Konum</p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white leading-relaxed">Bizi haritada görün</h3>
+                <p className="text-slate-300 text-sm lg:text-base leading-relaxed">
+                  Karabük Merkez, 100. Yıl, 1002. Cd. NO:1/18, 78050 Merkez/Karabük
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a href="https://maps.app.goo.gl/tbY6XAndX8y3jJGi9" target="_blank" rel="noreferrer" className="btn btn-primary">
+                  Google Maps&apos;te Aç
+                </a>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Karabuk+Merkez+1002.+Cd+No+1%2F18"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-secondary"
+                >
+                  Yol Tarifi Al
+                </a>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-xl border border-slate-700/60">
+              <iframe
+                title="Mertcan Pansiyon Konum"
+                src="https://www.google.com/maps?q=Karabuk+Merkez+1002.+Cd+No+1%2F18&output=embed"
+                className="w-full h-[320px] md:h-[420px]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </motion.section>
